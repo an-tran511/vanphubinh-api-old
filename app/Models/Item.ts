@@ -1,6 +1,7 @@
 import { DateTime } from 'luxon'
-import { column } from '@ioc:Adonis/Lucid/Orm'
+import { BelongsTo, belongsTo, column } from '@ioc:Adonis/Lucid/Orm'
 import AppBaseModel from './AppBaseModel'
+import Uom from './Uom'
 
 export default class Item extends AppBaseModel {
   @column({ isPrimary: true })
@@ -18,11 +19,20 @@ export default class Item extends AppBaseModel {
   @column()
   public uomId: number
 
+  @belongsTo(() => Uom)
+  public uom: BelongsTo<typeof Uom>
+
   @column()
   public secondaryUomId: number
 
+  @belongsTo(() => Uom)
+  public secondaryUom: BelongsTo<typeof Uom>
+
   @column()
   public purchaseUomId: number
+
+  @belongsTo(() => Uom)
+  public purchaseUom: BelongsTo<typeof Uom>
 
   @column()
   public isStockable: boolean

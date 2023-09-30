@@ -22,16 +22,15 @@ import Route from '@ioc:Adonis/Core/Route'
 import HealthCheck from '@ioc:Adonis/Core/HealthCheck'
 import Env from '@ioc:Adonis/Core/Env'
 
-Route.get('/', () => {
-  return { hello: 'world' }
-})
-
 Route.group(() => {
-  Route.post('/register', 'AuthController.register')
-  Route.post('/login', 'AuthController.login')
-  Route.get('/logout', 'AuthController.logout')
-  Route.get('/', 'AuthController.index')
-}).prefix('/auth')
+  Route.resource('items', 'ItemsController').apiOnly()
+  Route.group(() => {
+    Route.post('/register', 'AuthController.register')
+    Route.post('/login', 'AuthController.login')
+    Route.get('/logout', 'AuthController.logout')
+    Route.get('/', 'AuthController.index')
+  }).prefix('/auth')
+}).prefix('/api')
 
 Route.get('health', async ({ response }) => {
   const report = await HealthCheck.getReport()
