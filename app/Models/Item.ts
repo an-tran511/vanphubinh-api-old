@@ -47,7 +47,7 @@ export default class Item extends AppBaseModel {
   public isPrintable: boolean
 
   @column()
-  public specifications: object
+  public specifications?: object
 
   @column.dateTime({ autoCreate: true })
   public createdAt: DateTime
