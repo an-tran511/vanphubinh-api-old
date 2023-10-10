@@ -67,6 +67,7 @@
     "@adonisjs/session": "^6.4.0",
     "@adonisjs/shield": "^7.1.1",
     "ipx": "^1.3.0",
+    "lodash.groupby": "^4.6.0",
     "luxon": "^3.4.3",
     "pg": "^8.11.3",
     "phc-argon2": "^1.1.4",

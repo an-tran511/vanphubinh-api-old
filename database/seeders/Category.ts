@@ -7,16 +7,37 @@ export default class extends BaseSeeder {
   public async run() {
     await Category.createMany([
       {
-        name: 'Nhãn',
+        id: 1,
+        name: 'Màng đôi',
       },
       {
+        id: 2,
+        name: 'Màng đơn',
+      },
+      {
+        id: 3,
+        name: 'Màng in',
+        parentCategoryId: 1,
+      },
+      {
+        id: 4,
         name: 'Lốc',
+        parentCategoryId: 1,
       },
       {
+        id: 5,
         name: 'Áo bình',
+        parentCategoryId: 1,
       },
       {
-        name: 'Trục',
+        id: 6,
+        name: 'Áo bình trắng',
+        parentCategoryId: 5,
+      },
+      {
+        id: 7,
+        name: 'Áo bình xanh',
+        parentCategoryId: 5,
       },
     ])
   }
