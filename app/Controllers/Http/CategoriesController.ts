@@ -2,7 +2,7 @@ import type { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
 import Category from 'App/Models/Category'
 
 export default class CategoriesController {
-  public async index({}: HttpContextContract) {
+  public async index({ response }: HttpContextContract) {
     const categories = await Category.query().preload('parentCategory', (query) => {
       query.preload('parentCategory', (query) => {
         query.preload('parentCategory', (query) => {
@@ -12,6 +12,6 @@ export default class CategoriesController {
         })
       })
     })
-    return categories
+    return response.send({ data: categories })
   }
 }
