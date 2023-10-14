@@ -7,6 +7,9 @@ export default class extends BaseSchema {
     this.schema.createTable(this.tableName, (table) => {
       table.increments('id')
       table.string('name').notNullable()
+      table.string('email').nullable()
+      table.string('phone').nullable()
+      table.string('address').nullable()
       table.boolean('is_customer').defaultTo(true)
       table.boolean('is_supplier').defaultTo(true)
 

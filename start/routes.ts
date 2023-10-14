@@ -25,6 +25,8 @@ import Env from '@ioc:Adonis/Core/Env'
 Route.group(() => {
   Route.resource('items', 'ItemsController').apiOnly()
   Route.resource('categories', 'CategoriesController').apiOnly()
+  Route.resource('partners', 'PartnersController').apiOnly()
+
   Route.group(() => {
     Route.post('/register', 'AuthController.register')
     Route.post('/login', 'AuthController.login')
