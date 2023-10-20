@@ -1,12 +1,12 @@
 import BaseSchema from '@ioc:Adonis/Lucid/Schema'
 
 export default class extends BaseSchema {
-  protected tableName = 'sale_order_lines'
+  protected tableName = 'sales_order_lines'
 
   public async up() {
     this.schema.createTable(this.tableName, (table) => {
       table.increments('id')
-      table.integer('sale_order_id').unsigned().references('sale_orders.id').onDelete('CASCADE')
+      table.integer('sales_order_id').unsigned().references('sales_orders.id').onDelete('CASCADE')
       table.integer('item_id').unsigned().references('items.id').onDelete('RESTRICT')
       table.decimal('quantity', 10, 2)
       table.decimal('unit_price', 10, 2)

@@ -1,7 +1,7 @@
 import BaseSchema from '@ioc:Adonis/Lucid/Schema'
 
 export default class extends BaseSchema {
-  protected tableName = 'sale_orders'
+  protected tableName = 'sales_orders'
 
   public async up() {
     this.schema.createTable(this.tableName, (table) => {
@@ -11,7 +11,7 @@ export default class extends BaseSchema {
       table
         .enu('status', ['DRAFT', 'CONFIRMED', 'CANCELLED'], {
           useNative: true,
-          enumName: 'sale_order_status',
+          enumName: 'sales_order_status',
           existingType: false,
         })
         .defaultTo('DRAFT')
@@ -26,6 +26,6 @@ export default class extends BaseSchema {
 
   public async down() {
     this.schema.dropTable(this.tableName)
-    this.schema.raw('DROP TYPE IF EXISTS "sale_order_status"')
+    this.schema.raw('DROP TYPE IF EXISTS "sales_order_status"')
   }
 }

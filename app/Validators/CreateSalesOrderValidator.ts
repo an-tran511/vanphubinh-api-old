@@ -25,7 +25,7 @@ export default class CreateSaleOrderValidator {
    */
   public schema = schema.create({
     customerId: schema.number(),
-    saleOrderLines: schema.array().members(
+    salesOrderLines: schema.array().members(
       schema.object().members({
         itemId: schema.number(),
         quantity: schema.number(),
