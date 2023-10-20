@@ -1,6 +1,8 @@
 import { BaseModel } from '@ioc:Adonis/Lucid/Orm'
-import CamelCaseNamingStrategy from 'App/Strategies/CamelCaseNamingStrategy'
+import { string } from '@ioc:Adonis/Core/Helpers'
 
 export default class AppBaseModel extends BaseModel {
-  public static namingStrategy = new CamelCaseNamingStrategy()
+  public serializedName(_model: typeof BaseModel, propertyName: string) {
+    return string.camelCase(propertyName)
+  }
 }

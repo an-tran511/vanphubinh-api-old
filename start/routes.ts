@@ -23,9 +23,10 @@ import HealthCheck from '@ioc:Adonis/Core/HealthCheck'
 import Env from '@ioc:Adonis/Core/Env'
 
 Route.group(() => {
-  Route.resource('items', 'ItemsController').apiOnly()
-  Route.resource('categories', 'CategoriesController').apiOnly()
-  Route.resource('partners', 'PartnersController').apiOnly()
+  Route.resource('/items', 'ItemsController').apiOnly()
+  Route.resource('/categories', 'CategoriesController').apiOnly()
+  Route.resource('/partners', 'PartnersController').apiOnly()
+  Route.resource('/sale-orders', 'SaleOrdersController').apiOnly()
 
   Route.group(() => {
     Route.post('/register', 'AuthController.register')
