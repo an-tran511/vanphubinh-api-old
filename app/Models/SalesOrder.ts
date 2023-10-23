@@ -1,5 +1,5 @@
 import { DateTime } from 'luxon'
-import { BelongsTo, HasMany, belongsTo, column, hasMany } from '@ioc:Adonis/Lucid/Orm'
+import { BelongsTo, HasMany, belongsTo, column, computed, hasMany } from '@ioc:Adonis/Lucid/Orm'
 import AppBaseModel from './AppBaseModel'
 import Partner from './Partner'
 import SalesOrderLine from 'App/Models/SalesOrderLine'
@@ -8,6 +8,11 @@ import { SalesOrderStatus } from 'App/Models/Enum'
 export default class SalesOrder extends AppBaseModel {
   @column({ isPrimary: true })
   public id: number
+
+  @computed()
+  public get name() {
+    return `S${this.id}`
+  }
 
   @column()
   public customerId: number

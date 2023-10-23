@@ -5,6 +5,15 @@ import Database from '@ioc:Adonis/Lucid/Database'
 import { SalesOrderStatus } from 'App/Models/Enum'
 
 export default class SalesOrdersController {
+  public async index({ request, response }: HttpContextContract) {
+    const { _page: page, _perPage: perPage } = request.qs()
+    const salesOrders = await SalesOrder.query()
+      .preload('salesOrderLines')
+      .preload('customer')
+      .paginate(page, perPage)
+    return response.ok(salesOrders)
+  }
+
   public async store({ request, response }: HttpContextContract) {
     await Database.transaction(
       async (trx) =>
