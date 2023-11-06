@@ -1,9 +1,12 @@
 import { DateTime } from 'luxon'
 import { BelongsTo, belongsTo, column } from '@ioc:Adonis/Lucid/Orm'
-import AppBaseModel from './AppBaseModel'
-import Uom from './Uom'
+import AppBaseModel from 'App/Models/AppBaseModel'
+import Uom from 'App/Models/Uom'
+import { search } from 'App/Utils/search'
 
 export default class Item extends AppBaseModel {
+  public static search = search(this, ['name'])
+
   @column({ isPrimary: true })
   public id: number
 

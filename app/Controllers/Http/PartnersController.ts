@@ -4,7 +4,7 @@ import { schema } from '@ioc:Adonis/Core/Validator'
 
 export default class PartnersController {
   public async index({ request }: HttpContextContract) {
-    const { _page: page, _perPage: perPage } = request.qs()
+    const { page, perPage } = request.qs()
     const items = await Partner.query().paginate(page, perPage)
     return items
   }

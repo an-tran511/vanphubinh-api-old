@@ -6,8 +6,11 @@ import { SalesOrderStatus } from 'App/Models/Enum'
 
 export default class SalesOrdersController {
   public async index({ request, response }: HttpContextContract) {
-    const { _page: page, _perPage: perPage } = request.qs()
+    const { page, perPage, searchValue } = request.qs()
     const salesOrders = await SalesOrder.query()
+      .withScopes((query) => {
+        query.search(searchValue)
+      })
       .preload('salesOrderLines')
       .preload('customer')
       .paginate(page, perPage)
