@@ -26,28 +26,28 @@ export default class Item extends AppBaseModel {
   public uom: BelongsTo<typeof Uom>
 
   @column()
-  public secondaryUomId: number
+  public secondaryUomId?: number
 
   @belongsTo(() => Uom)
   public secondaryUom: BelongsTo<typeof Uom>
 
   @column()
-  public purchaseUomId: number
+  public purchaseUomId?: number
 
   @belongsTo(() => Uom)
   public purchaseUom: BelongsTo<typeof Uom>
 
   @column()
-  public isStockable: boolean
+  public isStockable?: boolean
 
   @column()
-  public isPurchasable: boolean
+  public isPurchasable?: boolean
 
   @column()
-  public isSellable: boolean
+  public isSellable?: boolean
 
   @column()
-  public isPrintable: boolean
+  public hasPrinting?: boolean
 
   @column()
   public specifications?: object

@@ -27,6 +27,9 @@ Route.group(() => {
   Route.resource('/categories', 'CategoriesController').apiOnly()
   Route.resource('/partners', 'PartnersController').apiOnly()
   Route.resource('/sales-orders', 'SalesOrdersController').apiOnly()
+  Route.resource('/uoms', 'UomsController').apiOnly()
+  Route.resource('/warehouses', 'WarehousesController').apiOnly()
+  Route.resource('/locations', 'LocationsController').apiOnly()
 
   Route.group(() => {
     Route.post('/register', 'AuthController.register')

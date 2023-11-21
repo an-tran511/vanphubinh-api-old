@@ -1,16 +1,17 @@
 import { DateTime } from 'luxon'
-import { column } from '@ioc:Adonis/Lucid/Orm'
+import { HasMany, column, hasMany } from '@ioc:Adonis/Lucid/Orm'
 import AppBaseModel from './AppBaseModel'
-import { search } from 'App/Utils/search'
+import Location from './Location'
 
-export default class Uom extends AppBaseModel {
-  public static search = search(this, ['name'])
-
+export default class Warehouse extends AppBaseModel {
   @column({ isPrimary: true })
   public id: number
 
   @column()
   public name: string
+
+  @hasMany(() => Location)
+  public locations: HasMany<typeof Location>
 
   @column.dateTime({ autoCreate: true })
   public createdAt: DateTime

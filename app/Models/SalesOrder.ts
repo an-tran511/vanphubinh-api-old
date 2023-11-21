@@ -7,7 +7,7 @@ import { SalesOrderStatus } from 'App/Models/Enum'
 import { search } from 'App/Utils/search'
 
 export default class SalesOrder extends AppBaseModel {
-  public static search = search(this, ['id', 'name'])
+  public static search = search(this, ['id'])
 
   @column({ isPrimary: true })
   public id: number
