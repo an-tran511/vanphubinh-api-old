@@ -21,5 +21,6 @@ export default class IndexSeeder extends BaseSeeder {
     await this.runSeeder(await import('../Category'))
     await this.runSeeder(await import('../Uom'))
     await this.runSeeder(await import('../Item'))
+    await this.runSeeder(await import('../Warehouse'))
   }
 }

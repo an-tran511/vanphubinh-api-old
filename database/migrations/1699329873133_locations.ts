@@ -6,6 +6,7 @@ export default class extends BaseSchema {
   public async up() {
     this.schema.createTable(this.tableName, (table) => {
       table.increments('id')
+      table.string('name')
       table
         .integer('warehouse_id')
         .unsigned()
@@ -18,7 +19,16 @@ export default class extends BaseSchema {
         .references('locations.id')
         .onDelete('RESTRICT')
         .onUpdate('CASCADE')
-      table.enum('location_type', ['warehouse', 'rack', 'shelf', 'bin'])
+      table.enum('location_type', [
+        'INTERNAL',
+        'VENDOR',
+        'CUSTOMER',
+        'INVENTORY_LOSS',
+        'PRODUCTION',
+        'TRANSIT',
+        'VIEW',
+        'ASSET_ALLOCATION',
+      ])
 
       /**
        * Uses timestamptz for PostgreSQL and DATETIME2 for MSSQL
