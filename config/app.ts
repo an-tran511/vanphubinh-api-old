@@ -212,7 +212,7 @@ export const profiler: ProfilerConfig = {
 
   /*
   |--------------------------------------------------------------------------
-  | Whitelist actions/row labels
+  | whitelist actions/row labels
   |--------------------------------------------------------------------------
   |
   | Define an array of actions or row labels that you want to whitelist for

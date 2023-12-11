@@ -10,7 +10,7 @@ import { BodyParserConfig } from '@ioc:Adonis/Core/BodyParser'
 const bodyParserConfig: BodyParserConfig = {
   /*
   |--------------------------------------------------------------------------
-  | White listed methods
+  | white listed methods
   |--------------------------------------------------------------------------
   |
   | HTTP methods for which body parsing must be performed. It is a good practice

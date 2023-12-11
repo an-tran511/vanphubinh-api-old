@@ -22,7 +22,7 @@ export default class LocationsController {
                   locations
               WHERE locations.parent_id = locations_cte.id
       )
-      SELECT locations_cte.id, array_to_string(locations_cte.ancestors, ' / ') as name, locations.location_type as "locationType"
+      SELECT locations_cte.id, locations_cte.name, array_to_string(locations_cte.ancestors, ' / ') as "fullPathName", locations.location_type as "locationType"
       FROM locations_cte JOIN locations ON locations.id = locations_cte.id;`
     )
 
