@@ -44,7 +44,7 @@
     "@faker-js/faker": "^8.1.0",
     "@japa/preset-adonis": "^1.2.0",
     "@japa/runner": "^2.5.1",
-    "@typescript-eslint/eslint-plugin": "^6.7.3",
+    "@typescript-eslint/eslint-plugin": "^6.20.0",
     "@typescript-eslint/parser": "^6.7.3",
     "adonis-preset-ts": "^2.1.0",
     "adonis-sail": "^0.0.7",
